@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "pythonstack"
+version = "0.1.0"
+description = ""
+authors = ["kozort <<>>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+ordereddict = "^1.1"
+python-ntlm = "^1.1.0"
+importlib-metadata = "^3.10.0"
+keyring = "^23.0.1"
+lockfile = "^0.12.2"
+mypy-extensions = "^0.4.3"
+zipp = "^3.4.1"
+cryptography = "^3.4.7"
+htmlparser = "^0.0.2"
+lxml = "^4.6.3"
+typing-extensions = "^3.7.4"
+ipaddr = "^2.2.0"
+brotli = "^1.0.9"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
