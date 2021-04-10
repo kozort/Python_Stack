@@ -93,7 +93,7 @@ dojo = {
 # # Devon
 def printInfo(some_dict):
     for k in some_dict:
-        print(f"{len(some_dict[k])} {k.upper()}")
+        print(len(some_dict[k]), k.upper())
         for i in range(len(some_dict[k])):
             print(some_dict[k][i])
         print("\n")
