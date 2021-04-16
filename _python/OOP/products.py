@@ -1,8 +1,10 @@
+import random
 class Product:
 	def __init__(self, name= "Unnamed Prodcut", price=0, category="uncategorized"):
 		self.name = name
 		self.price = price
 		self.category = category
+		self.id = round(random.random()*10000)
 	
 	def update_price(self, percent_change, is_increased): 
 		if is_increased:
@@ -12,20 +14,18 @@ class Product:
 		return self
 
 	def print_info(self):
-		print(f"Product name: {self.name}\nCategory:     {self.category}\nPrice:        ${self.price}")
+		print(f"Product name: {self.name}\nCategory:     {self.category}\nPrice:        ${self.price}\nUnique ID:      {self.id}")
 		return self
 
 #test cases
 if __name__ == "__main__":
-	product = Product("Oranges", 5, "Fruit")
-	product.print_info()
+	orange = Product("Oranges", 5, "Fruit")
+	orange.print_info()
 	print("-"*20)
 	print("10% inflation :(")
-	product.update_price(0.1,True)
-	product.print_info()
+	orange.update_price(0.1,True)
+	orange.print_info()
 	print("-"*20)
 	print("Going in Clearance!")
-	product.update_price(0.5,False)
-	product.print_info()
-
-    
+	orange.update_price(0.5,False)
+	orange.print_info()
