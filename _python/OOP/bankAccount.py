@@ -23,9 +23,9 @@ class BankAccount:
 		self.balance *= (1+self.int_rate)
 		return self
 
-accountOne = BankAccount(0.05, 100)
-accountOne.display_account_info()
-accountTwo = BankAccount(0.10, 50)
-accountTwo.display_account_info()
-accountOne.deposit(100).deposit(100).deposit(100).withdraw(362).yield_interest().display_account_info()
-accountTwo.deposit(100).deposit(100).withdraw(7).withdraw(7).withdraw(7).withdraw(7).yield_interest().display_account_info()
+# accountOne = BankAccount(0.05, 100)
+# accountOne.display_account_info()
+# accountTwo = BankAccount(0.10, 50)
+# accountTwo.display_account_info()
+# accountOne.deposit(100).deposit(100).deposit(100).withdraw(362).yield_interest().display_account_info()
+# accountTwo.deposit(100).deposit(100).withdraw(7).withdraw(7).withdraw(7).withdraw(7).yield_interest().display_account_info()
