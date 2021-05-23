@@ -8,11 +8,8 @@ def result(request):
     
 def takeData(request):
     if request.method == 'POST':
-        context = {
-            'yourName': request.POST['yourName'],
-            'favLanguage': request.POST['favLanguage'],
-            'location': request.POST['location'],
-            'comment':  request.POST['comment']
-        }
-        return render(request, "result.html", context)
-    return render(request, "result.html")
+        request.session['yourName']    = request.POST['yourName']
+        request.session['favLanguage'] = request.POST['favLanguage']
+        request.session['location']    = request.POST['location']
+        request.session['comment']     = request.POST['comment']
+    return redirect('/result')

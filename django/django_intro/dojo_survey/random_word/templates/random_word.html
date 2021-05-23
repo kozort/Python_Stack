@@ -10,29 +10,26 @@
    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
 
-    <title>New User</title>
+    <title>Dojo Survey</title>
   </head>
   <body>
-    <div class="container-md p-3">
-        <div class="row">
-            <h3 class="col-auto">New User</h1>
+    <div class="container-sm p-3" style="max-width: 35rem;">
+        <div class="row align-items-center">
+            <div class="card text-white bg-primary p-0">
+                <div class="card-header text-center">Random Word (Attempt #{{attempt_count}})</div>
+                <div class="card-body text-center">
+                <h4 class="card-title">{{random_word}}</h4>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <p class="col-2">Name:</p>
-            <p class="col-2">{{request.session.yourName}}</p>
-        </div>
-        <div class="row">
-            <p class="col-2">Location:</p>
-            <p class="col-2">{{request.session.location}}</p>
-        </div>
-        <div class="row">
-            <p class="col-2">Favorite Language:</p>
-            <p class="col-2">{{request.session.favLanguage}}, ya baby!</p>
-
-        </div>
-        <div class="row">
-            <p class="col-2">Comment:</p>
-            <p class="col-2">{{request.session.comment}}</p>
+            <!-- buttom -->
+        <div class="row g-2 mt-2">
+            <div class="text-center">
+                <form action="/gen" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Generate</button>
+                </form>
+            </div>
         </div>
     </div>
 
