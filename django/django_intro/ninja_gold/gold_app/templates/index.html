@@ -13,22 +13,79 @@
     <title>Ninja Gold</title>
   </head>
   <body>
-    <div class="container-sm p-3" style="max-width: 35rem;">
-        <div class="row align-items-center">
-            <div class="card text-white bg-primary p-0">
-                <div class="card-header text-center">Heading</div>
-                <div class="card-body text-center">
-                <h4 class="card-title">Title</h4>
+    <div class="container mt-3">
+        <div class="row px-3">
+            <div class="col-auto">
+                <div class="pt-2">Your Gold:</div>
+            </div>
+            <div class="col-3">
+                <p class="form-control">GOLD count</p>
+            </div>
+        </div>
+        <div class="row gx-3 px-3">
+            <div class="col-3">
+                <div class="text-white bg-success card-body text-center">
+                    <h4 class="card-title">Farm</h4>
+                    <p class="card-text">(earns 10-20 golds)</p>
+                    <div class="row g-2 mt-2">
+                        <div class="text-center">
+                            <form action="/process" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Find Gold!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="text-white bg-secondary card-body text-center">
+                    <h4 class="card-title">Cave</h4>
+                    <p class="card-text">(earns 5-10 golds)</p>
+                    <div class="row g-2 mt-2">
+                        <div class="text-center">
+                            <form action="/process" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Find Gold!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="text-white bg-info card-body text-center">
+                    <h4 class="card-title">House</h4>
+                    <p class="card-text">(earns 2-5 golds)</p>
+                    <div class="row g-2 mt-2">
+                        <div class="text-center">
+                            <form action="/process" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Find Gold!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="text-white bg-danger card-body text-center">
+                    <h4 class="card-title">Casino</h4>
+                    <p class="card-text">(earns/takes 0-50 golds)</p>
+                    <div class="row g-2 mt-2">
+                        <div class="text-center">
+                            <form action="/process" method="POST">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary">Find Gold!</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-            <!-- buttom -->
-        <div class="row g-2 mt-2">
-            <div class="text-center">
-                <form action="/gen" method="POST">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-primary">Generate</button>
-                </form>
+        <div class="card bg-light m-3">
+            <div class="card-header">Activites</div>
+            <div class="card-body">
+                <p class="card-text">
+                    list of text from python
+                </p>
             </div>
         </div>
     </div>
