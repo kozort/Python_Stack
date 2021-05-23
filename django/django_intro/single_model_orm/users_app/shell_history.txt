@@ -1,0 +1,86 @@
+(git_Django) Tanyas-MacBook-Pro:single_model_orm tim$ python manage.py makemigrations
+Migrations for 'users_app':
+  users_app/migrations/0001_initial.py
+    - Create model USER
+(git_Django) Tanyas-MacBook-Pro:single_model_orm tim$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions, users_app
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying sessions.0001_initial... OK
+  Applying users_app.0001_initial... OK
+(git_Django) Tanyas-MacBook-Pro:single_model_orm tim$ python manage.py shell
+Python 3.9.2 (default, Mar 26 2021, 23:22:38) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.23.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: from users_apps.models import *
+---------------------------------------------------------------------------
+ModuleNotFoundError                       Traceback (most recent call last)
+<ipython-input-1-01fc3b3d7883> in <module>
+----> 1 from users_apps.models import *
+
+ModuleNotFoundError: No module named 'users_apps'
+
+In [2]: from users_app.models import *
+
+In [3]: USER.objects.create(first_name="Tim", last_name="Koz", email_address = "yoyo@gmail.com",age="31")
+Out[3]: <USER: USER object (1)>
+
+In [4]: USER.objects.create(first_name="Aby", last_name="Smith", email_address = "aby@gmail.com",age="22")
+Out[4]: <USER: USER object (2)>
+
+In [5]: USER.objects.create(first_name="Katy", last_name="Johnh", email_address = "katy@gmail.com",age="27")
+Out[5]: <USER: USER object (3)>
+
+In [6]: USER.objects.all()
+Out[6]: <QuerySet [<USER: USER object (1)>, <USER: USER object (2)>, <USER: USER object (3)>]>
+
+In [7]: USER.objects.last()
+Out[7]: <USER: USER object (3)>
+
+In [8]: USER.objects.first()
+Out[8]: <USER: USER object (1)>
+
+In [9]: USER.objects.get(id=3).last_name = "Pancakes"
+
+In [10]: print(USER.objects.get(id=3).last_name)
+Johnh
+
+In [11]: user3 = USER.objects.get(id=3)
+
+In [12]: user3.last_name = "Pancakes"
+
+In [13]: user3.save()
+
+In [14]: print(USER.objects.get(id=3).last_name)
+Pancakes
+
+In [15]: USER.objects.get(id=2).delete()
+Out[15]: (1, {'users_app.USER': 1})
+
+In [16]: USER.objects.all()
+Out[16]: <QuerySet [<USER: USER object (1)>, <USER: USER object (3)>]>
+
+In [17]: USER.objects.all().order_by("first_name")
+Out[17]: <QuerySet [<USER: USER object (3)>, <USER: USER object (1)>]>
+
+In [18]: USER.objects.all().order_by("-first_name")
+Out[18]: <QuerySet [<USER: USER object (1)>, <USER: USER object (3)>]>
+
+In [19]: 

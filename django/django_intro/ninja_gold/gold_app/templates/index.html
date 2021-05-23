@@ -19,7 +19,7 @@
                 <div class="pt-2">Your Gold:</div>
             </div>
             <div class="col-3">
-                <p class="form-control">GOLD count</p>
+                <p class="form-control">{{request.session.gold}}</p>
             </div>
         </div>
         <div class="row gx-3 px-3">
@@ -29,7 +29,7 @@
                     <p class="card-text">(earns 10-20 golds)</p>
                     <div class="row g-2 mt-2">
                         <div class="text-center">
-                            <form action="/process" method="POST">
+                            <form action="/farm" method="POST">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-primary">Find Gold!</button>
                             </form>
@@ -43,7 +43,7 @@
                     <p class="card-text">(earns 5-10 golds)</p>
                     <div class="row g-2 mt-2">
                         <div class="text-center">
-                            <form action="/process" method="POST">
+                            <form action="/cave" method="POST">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-primary">Find Gold!</button>
                             </form>
@@ -57,7 +57,7 @@
                     <p class="card-text">(earns 2-5 golds)</p>
                     <div class="row g-2 mt-2">
                         <div class="text-center">
-                            <form action="/process" method="POST">
+                            <form action="/house" method="POST">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-primary">Find Gold!</button>
                             </form>
@@ -71,7 +71,7 @@
                     <p class="card-text">(earns/takes 0-50 golds)</p>
                     <div class="row g-2 mt-2">
                         <div class="text-center">
-                            <form action="/process" method="POST">
+                            <form action="/casino" method="POST">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-primary">Find Gold!</button>
                             </form>
@@ -84,7 +84,10 @@
             <div class="card-header">Activites</div>
             <div class="card-body">
                 <p class="card-text">
-                    list of text from python
+                    {% for activity in request.session.activities %}
+                    {{activity}}
+                    <br/>
+                    {% endfor %}
                 </p>
             </div>
         </div>
