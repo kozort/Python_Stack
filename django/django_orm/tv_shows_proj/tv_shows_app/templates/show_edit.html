@@ -30,6 +30,13 @@
             </div>
             
             <div class="container-md p-3">
+                {% if messages %}
+                <ul class="messages">    
+                    {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                    {% endfor %}
+                    </ul>
+                {% endif %}
                 <form action="/shows/{{Show.id}}/update" method="POST">
                     {% csrf_token %}
                     <!-- row1 -->
@@ -41,7 +48,7 @@
                     <!-- row2 -->
                     <div class="row g-2 align-items-center mb-3 ml-3">
                         <div class="col-12">
-                            <input name="title" type="text" id="title" class="form-control" placeholder="{{Show.title}}"> 
+                            <input name="title" type="text" id="title" class="form-control" value="{{Show.title}}"> 
                         </div>
                     </div>
                     <!-- row3 -->
@@ -56,17 +63,17 @@
                     <!-- row4 -->
                     <div class="row g-2 align-items-center mb-3 ml-3">
                         <div class="col-6">
-                            <input name="network" type="text" id="network" class="form-control" placeholder="{{Show.network}}">
+                            <input name="network" type="text" id="network" class="form-control" value="{{Show.network}}">
                         </div>
                         <div class="col-6">
-                            <input name="release_date" type="date" id="release_date" class="form-control" placeholder="{{Show.release_date}}">
+                            <input name="release_date" type="date" id="release_date" class="form-control" data-="{{Show.release_date}}">
                         </div>
                     </div>
                     <!-- row5 -->
                     <div class="row g-2 align-items-center mb-3 ml-3">
                         <div class="form-group col-12">
                             <label for="description" class="form-label">Description</label>
-                            <textarea  name="description" id="description" class="form-control" rows="4">{{Show.description}}</textarea>
+                            <textarea  name="description" id="description" class="form-control" rows="4" >{{Show.description}}</textarea>
                         </div>
                     </div>
                         

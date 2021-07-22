@@ -30,6 +30,13 @@
             </div>
             
             <div class="container-md p-3">
+                {% if messages %}
+                <ul class="messages">    
+                    {% for message in messages %}    
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                    {% endfor %}
+                    </ul>
+                {% endif %}
                 <form action="/shows/create" method="POST">
                     {% csrf_token %}
                     <!-- row1 -->
