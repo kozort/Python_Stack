@@ -22,15 +22,17 @@
         <div class="row">
             <div class="row g-2 align-items-center mt-3 ml-3">
                 <div class="col-10">
-                    <h2>Success! Welcome, {{request.session.userid}}!</h2>
-
+                    <h2>Success! Welcome, {{User.first_name}}!</h2>
                 </div>
                 <div class="col-2">
-                    <a href="#" class="btn btn-primary">Log Out</a>
+                    <form action="/logout" method="POST">
+                        {% csrf_token %}
+                            <button type="submit" class="btn btn-primary" value="login">Log Out</button>
+                    </form>
                 </div>
             </div>
             <div class="row g-2 ml-4">
-                <p class="text-success">Succesfully registered!</p>
+                <p class="text-success">Succesfully {{request.session.how_directed}}!</p>
             </div>
         </div>
     </div>

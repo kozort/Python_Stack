@@ -15,6 +15,11 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- AJAX -->
+    {% load static %}
+    <script src="{% static 'register.js' %}"></script>
+
     <title>Login & Registration</title>
 </head>
 <body>
@@ -29,7 +34,8 @@
                         {% endfor %}
                     </ul>
                     {% endif %}
-                    <form action="/register" method="POST">
+                    <div id="emailMsg"></div>
+                    <form action="/register" method="POST" id="regForm">
                         {% csrf_token %}
                         <!-- row fill in info -->
                         <div class="row g-2 m-3">
@@ -54,6 +60,7 @@
                             <div class="col-6">
                                 <input name="email" type="text" id="email" class="form-control">
                             </div>
+                            
                             <!-- Birthday-->
                             <div class="col-4">
                                 <label for="birthday" class="col-form-label">Birthday:</label>
@@ -87,7 +94,7 @@
                 <div class="col-6">
                     <h1 class="text-center">Login</h1>
                     {{request.session.er }}
-                    <form action="/login" method="POST">
+                    <form action="/login" method="POST" id="loginForm">
                         {% csrf_token %}
                         <!-- row fill in info -->
                         <div class="row g-2 m-3">
@@ -109,7 +116,7 @@
                         <!-- row: register -->
                         <div class="row g-2 justify-content-center m-3">
                             <div class="col-2 text-center">
-                                <button type="submit" class="btn btn-success" value="register">Register</button>
+                                <button type="submit" class="btn btn-success" value="login">Login</button>
                             </div>
                         </div>
                     </form>
