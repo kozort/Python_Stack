@@ -20,9 +20,6 @@ class ShowManager(models.Manager):
             errors["release_date"] = f"Release date needs to be in the past"
         elif datetime.strptime(postData['release_date'], "%Y-%m-%d") < datetime.strptime("1900-01-01", "%Y-%m-%d"):
             errors["release_date"] = f"Release date too old!"
-        
-        #check if title is unique
-        
 
 
         return errors
