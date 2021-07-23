@@ -29,7 +29,7 @@
                         {% endfor %}
                     </ul>
                     {% endif %}
-                    <form action="/shows/create" method="POST">
+                    <form action="/register" method="POST">
                         {% csrf_token %}
                         <!-- row fill in info -->
                         <div class="row g-2 m-3">
@@ -59,7 +59,7 @@
                                 <label for="birthday" class="col-form-label">Birthday:</label>
                             </div>
                             <div class="col-6">
-                                <input name="birthday" type="text" id="birthday" class="form-control">
+                                <input name="birthday" type="date" id="birthday" class="form-control">
                             </div>
                             <!-- Password -->
                             <div class="col-4">
@@ -86,14 +86,8 @@
                 </div>
                 <div class="col-6">
                     <h1 class="text-center">Login</h1>
-                    {% if messages %}
-                    <ul class="messages">    
-                        {% for message in messages %}    
-                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                    <form action="/shows/create" method="POST">
+                    {{request.session.er }}
+                    <form action="/login" method="POST">
                         {% csrf_token %}
                         <!-- row fill in info -->
                         <div class="row g-2 m-3">

@@ -23,12 +23,12 @@ class UserManager(models.Manager):
             errors["birthday"] = "Birthday cannot be empty."
         elif datetime.strptime(postData['birthday'], "%Y-%m-%d") >=  datetime.today():
             errors["birthday"] = "Birthday needs to be in the past!"
-        elif datetime.strptime(postData['birthday'], "%Y-%m-%d") < datetime.today() - timedelta(days=4745):
+        elif datetime.strptime(postData['birthday'], "%Y-%m-%d") > datetime.today() - timedelta(days=4745):
             errors["birthday"] = "Must be at least 13years old."
 
         if len(postData['password']) < 8:
             errors["password"] = "Password should be at least 8 characters."
-        if postData['confrim_PW'] == postData['password']:
+        if postData['confrim_PW'] != postData['password']:
             errors["password"] = "Passwords need to match."
 
         return errors
